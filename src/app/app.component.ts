@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppAuthService } from './services/app.auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'm294_project_frontend_sboccia';
+
+  constructor(private authService: AppAuthService) {}
+
+  public login() {
+      this.authService.login();
+    }
+
+  public logout() {
+    this.authService.logout();
+  }
 }
+
