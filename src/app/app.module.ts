@@ -13,13 +13,26 @@ import { HttpXSRFInterceptor } from './interceptor/http.csrf.interceptors';
 import { AppAuthService } from './services/app.auth.service';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeadComponent } from './components/head/head.component';
+import { ContentScrapbookComponent } from './components/content-scrapbook/content-scrapbook.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { ContentSitesComponent } from './components/content-sites/content-sites.component';
+import { ContentRatingsComponent } from './components/content-ratings/content-ratings.component';
+import { ContentCommentsComponent } from './components/content-comments/content-comments.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const authConfig: AuthConfig = {
-  issuer: 'http://localhost:8080/realms/ILV',
+  issuer: 'http://localhost:8080/realms/scrapbook',
   requireHttps: false,
   redirectUri: environment.frontendBaseUrl,
   postLogoutRedirectUri: environment.frontendBaseUrl,
-  clientId: 'demoapp',
+  clientId: 'scrapbook',
   scope: 'openid profile roles offline_access',
   responseType: 'code',
   showDebugInformation: true,
@@ -41,19 +54,33 @@ export function storageFactory(): OAuthStorage {
   declarations: [
     AppComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    HeadComponent,
+    ContentScrapbookComponent,
+    ContentSitesComponent,
+    ContentRatingsComponent,
+    ContentCommentsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-XSRF-TOKEN'
     }),
-    OAuthModule.forRoot({resourceServer: {sendAccessToken: true}})
+    OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
+     /* Materials */
+     MatSidenavModule,
+     MatButtonModule,
+     MatSlideToggleModule,
+     MatCheckboxModule,
+     MatIconModule,
+     ReactiveFormsModule,
+     MatFormFieldModule,
+     MatSelectModule
   ],
   providers: [
     {provide: AuthConfig, useValue: authConfig},
@@ -62,7 +89,7 @@ export function storageFactory(): OAuthStorage {
       provide: OAuthStorage, useFactory: storageFactory
     },
     AppAuthGuard,
-    Location, {provide: LocationStrategy, useClass: PathLocationStrategy}
+    Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
  ],
   bootstrap: [AppComponent]
 })

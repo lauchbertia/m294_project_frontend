@@ -1,7 +1,52 @@
-<div>
-  <button (click)="login()" color="warn" mat-raised-button color="warn">Login</button>
-  <button (click)="logout()" color="warn" mat-raised-button color="warn">Logout</button>
+<div style="height: 100%; overflow: hidden">
+  <div style="vertical-align: middle">
+    <button (click)="drawer.toggle()" color="primary" mat-icon-button type="button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!--<button (click)="login()" color="warn" mat-raised-button color="warn">Login</button>-->
+    <button (click)="logout()" color="warn" mat-raised-button color="warn">Logout</button>
+  </div>
+
+
+  <mat-drawer-container class="scrapbook-container">
+    <mat-drawer #drawer [opened]="true" class="scrapbook-sidenav" mode="side">
+      <div>
+        <div>
+          <button [routerLink]="['dashboard']" color="primary" mat-raised-button class="nav-buttons">
+            <mat-icon>dashboard</mat-icon>&nbsp;{{'dashboard'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['scrapbooks']" color="primary" mat-raised-button class="nav-buttons">
+            <mat-icon>menu_book</mat-icon>&nbsp;{{'scrapbooks'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['sites']" color="primary" mat-raised-button class="nav-buttons">
+            <mat-icon>local_library</mat-icon>&nbsp;{{'sites'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['comments']" color="primary" mat-raised-button class="nav-buttons">
+            <mat-icon>chat</mat-icon>&nbsp;{{'comments'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['ratings']" color="primary" mat-raised-button class="nav-buttons">
+            <mat-icon>star</mat-icon>&nbsp;{{'ratings'}}</button>
+        </div>
+
+        <!--<div *ngIf="oauthService.hasValidAccessToken()" style="margin-top: 50px">
+          <button (click)="logout()" color="warn" mat-button>
+            <mat-icon>logout</mat-icon>
+            {{ 'logout'}}
+          </button>
+        </div>-->
+
+      </div>
+    </mat-drawer>
+
+    <div class="scrapbook-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-drawer-container>
 </div>
-<div>
-  <router-outlet></router-outlet>
-</div>
+
+
