@@ -26,6 +26,17 @@ import { ContentSitesComponent } from './components/content-sites/content-sites.
 import { ContentRatingsComponent } from './components/content-ratings/content-ratings.component';
 import { ContentCommentsComponent } from './components/content-comments/content-comments.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ListScrapbookComponent } from './components/list-scrapbook/list-scrapbook.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {MatTableModule} from "@angular/material/table";
+import { IsInRoleDirective } from './dir/is.in.role.dir';
+
+
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/scrapbook',
@@ -61,6 +72,9 @@ export function storageFactory(): OAuthStorage {
     ContentRatingsComponent,
     ContentCommentsComponent,
     DashboardComponent,
+    ListScrapbookComponent,
+    ConfirmDialogComponent,
+    IsInRoleDirective
   ],
   imports: [
     BrowserModule,
@@ -80,7 +94,13 @@ export function storageFactory(): OAuthStorage {
      MatIconModule,
      ReactiveFormsModule,
      MatFormFieldModule,
-     MatSelectModule
+     MatSelectModule,
+     MatToolbarModule,
+     MatSnackBarModule,
+     MatDialogModule,
+     MatInputModule,
+     MatPaginatorModule,
+     MatTableModule
   ],
   providers: [
     {provide: AuthConfig, useValue: authConfig},

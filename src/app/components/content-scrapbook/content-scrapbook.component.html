@@ -1,1 +1,35 @@
-<p>content-scrapbook works!</p>
+<div>
+  <div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span class="toolbar-spacer"></span>
+        <button (click)="back()" color="primary" mat-button style="color: white">
+          <mat-icon>arrow_back_ios</mat-icon>
+          {{ 'back'}}
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div class="app-form">
+    <form (ngSubmit)="save(objForm.value)" [formGroup]="objForm!">
+      <div>
+      <mat-form-field>
+        <mat-label>title</mat-label>
+        <input #inputName appAutofocus formControlName="title" matInput maxlength="255" required>
+        <mat-hint align="end">{{inputName.value.length || 0}}/255</mat-hint>
+      </mat-form-field>
+      </div>
+      <div>
+      <mat-form-field>
+        <mat-label>rating</mat-label>
+        <input #inputName appAutofocus formControlName="rating" matInput maxlength="255" required>
+        <mat-hint align="end">{{inputName.value.length || 0}}/255</mat-hint>
+      </mat-form-field>
+      </div>
+      <button [disabled]="!objForm.valid" color="primary" mat-raised-button style="width: 200px">
+        {{ 'save' }}
+      </button>
+    </form>
+  </div>
+</div>
+

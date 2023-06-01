@@ -1,7 +1,7 @@
 import {Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {AppAuthService} from '../service/app.auth.service';
+import {AppAuthService} from '../services/app.auth.service';
 
 @Directive({
   selector: '[appIsInRole]'
