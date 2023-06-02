@@ -4,7 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { AuthConfig, OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
 import { environment } from 'src/environments/environment.development';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -35,6 +35,9 @@ import { ListScrapbookComponent } from './components/list-scrapbook/list-scrapbo
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import {MatTableModule} from "@angular/material/table";
 import { IsInRoleDirective } from './dir/is.in.role.dir';
+import { ListCommentComponent } from './components/list-comments/list-comment.component';
+import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+import { ListSitesComponent } from './components/list-sites/list-sites.component';
 
 
 
@@ -74,7 +77,10 @@ export function storageFactory(): OAuthStorage {
     DashboardComponent,
     ListScrapbookComponent,
     ConfirmDialogComponent,
-    IsInRoleDirective
+    IsInRoleDirective,
+    ListCommentComponent,
+    ListRatingsComponent,
+    ListSitesComponent
   ],
   imports: [
     BrowserModule,

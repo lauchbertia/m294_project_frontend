@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { ScrapbookService } from 'src/app/services/content-scrapbook.service';
   templateUrl: './content-scrapbook.component.html',
   styleUrls: ['./content-scrapbook.component.scss']
 })
-export class ContentScrapbookComponent {
+export class ContentScrapbookComponent implements OnInit{
 
   scrapbook = new Scrapbook();
   public objForm = new UntypedFormGroup({

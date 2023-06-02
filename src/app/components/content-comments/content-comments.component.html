@@ -1,1 +1,39 @@
-<p>content-comments works!</p>
+<div>
+  <div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span class="toolbar-spacer"></span>
+        <button (click)="back()" color="primary" mat-button style="color: white">
+          <mat-icon>arrow_back_ios</mat-icon>
+          {{ 'back'}}
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div class="app-form">
+    <form (ngSubmit)="save(objForm.value)" [formGroup]="objForm!">
+      <div>
+      <mat-form-field>
+        <mat-label>content</mat-label>
+        <input #inputName appAutofocus formControlName="content" matInput maxlength="500" required>
+        <mat-hint align="end">{{inputName.value.length || 0}}/500</mat-hint>
+      </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>scrapbook</mat-label>
+          <mat-select formControlName="siteId" required>
+            <mat-option *ngFor="let site of sites" [value]="site.id">
+              {{site.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button [disabled]="!objForm.valid" color="primary" mat-raised-button style="width: 200px">
+        {{ 'save' }}
+      </button>
+    </form>
+  </div>
+</div>
+
+

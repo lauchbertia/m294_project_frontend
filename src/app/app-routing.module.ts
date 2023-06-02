@@ -8,6 +8,10 @@ import { ContentSitesComponent } from './components/content-sites/content-sites.
 import { ContentRatingsComponent } from './components/content-ratings/content-ratings.component';
 import { ListScrapbookComponent } from './components/list-scrapbook/list-scrapbook.component';
 import { ContentScrapbookComponent } from './components/content-scrapbook/content-scrapbook.component';
+import { ListCommentComponent } from './components/list-comments/list-comment.component';
+import { ListSitesComponent } from './components/list-sites/list-sites.component';
+import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+
 
 const routes: Routes = [
   { path: 'nav', component: NavComponent},
@@ -16,9 +20,15 @@ const routes: Routes = [
   { path: 'scrapbooks', component: ListScrapbookComponent},
   { path: 'scrapbook/:id', component: ContentScrapbookComponent, pathMatch: 'full'},
   { path: 'scrapbook', component:  ContentScrapbookComponent, pathMatch: 'full'},
-  { path: 'sites', component: ContentSitesComponent},
-  { path: 'comments', component: ContentCommentsComponent},
-  { path: 'ratings', component: ContentRatingsComponent}
+  { path: 'sites', component: ListSitesComponent},
+  { path: 'site/:id', component: ContentSitesComponent, pathMatch: 'full'},
+  { path: 'site', component: ContentSitesComponent, pathMatch: 'full'},
+  { path: 'comments', component: ListCommentComponent},
+  { path: 'comment/:id', component: ContentCommentsComponent, pathMatch: 'full'},
+  { path: 'comment', component: ContentCommentsComponent, pathMatch: 'full'},
+  { path: 'ratings', component: ListRatingsComponent},
+  { path: 'rating/:id', component: ContentRatingsComponent},
+  { path: 'rating', component: ContentRatingsComponent}
 
 ];
 

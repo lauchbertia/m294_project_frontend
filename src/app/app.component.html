@@ -1,8 +1,12 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
 <div style="height: 100%; overflow: hidden">
   <div style="vertical-align: middle">
     <button (click)="drawer.toggle()" color="primary" mat-icon-button type="button">
       <mat-icon>menu</mat-icon>
     </button>
+    <span class="header-font">Scrapbook</span>
     </div>
 
 
@@ -30,7 +34,7 @@
             <mat-icon>star</mat-icon>&nbsp;{{'ratings'}}</button>
         </div>
 
-        <div>
+        <div *ngIf="!oauthService.hasValidAccessToken()">
           <button (click)="login()" class="nav-buttons"  mat-raised-button color="basic">Login</button>
         </div>
         <div *ngIf="oauthService.hasValidAccessToken()">

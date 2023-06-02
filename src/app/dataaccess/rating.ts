@@ -1,5 +1,8 @@
-export class ContentRatingComponent {
+import { Scrapbook } from "./scrapbook";
+
+export class Rating {
   public id!: number;
-  public title = '';
-  public rating = 0;
+  public stars = 0;
+  public scrapbook = new Scrapbook();
+  public scrapbookId = -1;
 }
